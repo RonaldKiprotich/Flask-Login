@@ -1,0 +1,18 @@
+
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark blue">
+    <ul class="navbar-nav ml-auto">
+        {% if current_user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" href = "/">{{current_user.username}}</a>
+          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{url_for('auth.logout')}}">Logout</a>
+            {% else %}
+            <a class="dropdown-item text-white" href="{{url_for('auth.login')}}">Login</a>
+            {%endif%}
+          </div>
+        </li>
+      </ul>
+  </nav>
+  <!--/.Navbar -->
